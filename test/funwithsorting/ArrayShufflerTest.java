@@ -5,6 +5,7 @@
  */
 package funwithsorting;
 
+import funwithsorting.bll.Shuffling.ArrayShuffler;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
