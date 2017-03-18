@@ -5,11 +5,14 @@
  */
 package funwithsorting;
 
-import funwithsorting.be.ESortStrategy;
-import funwithsorting.bll.sorting.ASortCommand;
-import funwithsorting.bll.sorting.ASortStrategy;
+import funwithsorting.bll.intArray.sorting.ASortArrayTemplate;
+import funwithsorting.bll.intArray.sorting.ISortIntArrayStrategy;
+import funwithsorting.bll.intArray.sorting.strategies.BubbleSort;
+import funwithsorting.bll.intArray.sorting.strategies.InsertionSort;
+import funwithsorting.bll.intArray.sorting.strategies.MergeSort;
+import funwithsorting.bll.intArray.sorting.strategies.QuickSort;
+import funwithsorting.bll.intArray.sorting.strategies.SelectionSort;
 import static org.junit.Assert.assertArrayEquals;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -18,24 +21,17 @@ import org.junit.Test;
  */
 public class FunWithSortingTest {
 
-    private ASortCommand sortCommand;
-
-    @Before
-    public void setUp() {
-        sortCommand = new ASortCommand();
-    }
-
     /**
      * Test of bubbleSort method, of class FunWithSorting.
      */
     @Test
     public void testBubbleSort() {
 
-        ASortStrategy bubbleSort = sortCommand.getStrategy(ESortStrategy.BUBBLE);
+        ISortIntArrayStrategy bubbleSort = new BubbleSort();
         int[] data = new int[]{5, 2, 3, 1, 6};
         int[] expResult = new int[]{1, 2, 3, 5, 6};
 
-        bubbleSort.doYourMagicThing(data);
+        bubbleSort.sort(data);
 
         int[] result = data;
         assertArrayEquals(expResult, result);
@@ -46,11 +42,11 @@ public class FunWithSortingTest {
      */
     @Test
     public void testInsertionSort() {
-        ASortStrategy insertionSort = sortCommand.getStrategy(ESortStrategy.INSERTION);
+        ASortArrayTemplate insertionSort = new InsertionSort();
         int[] data = new int[]{5, 2, 3, 1, 6};
         int[] expResult = new int[]{1, 2, 3, 5, 6};
 
-        insertionSort.doYourMagicThing(data);
+        insertionSort.sort(data);
 
         int[] result = data;
         assertArrayEquals(expResult, result);
@@ -61,11 +57,11 @@ public class FunWithSortingTest {
      */
     @Test
     public void testSelectionSort() {
-        ASortStrategy selectionSort = sortCommand.getStrategy(ESortStrategy.SELECTION);
+        ASortArrayTemplate selectionSort = new SelectionSort();
         int[] data = new int[]{5, 2, 3, 1, 6};
         int[] expResult = new int[]{1, 2, 3, 5, 6};
 
-        selectionSort.doYourMagicThing(data);
+        selectionSort.sort(data);
 
         int[] result = data;
         assertArrayEquals(expResult, result);
@@ -76,11 +72,11 @@ public class FunWithSortingTest {
      */
     @Test
     public void testMergeSort() {
-        ASortStrategy mergeSort = sortCommand.getStrategy(ESortStrategy.MERGE);
+        ASortArrayTemplate mergeSort = new MergeSort();
         int[] data = new int[]{5, 2, 3, 1, 6};
         int[] expResult = new int[]{1, 2, 3, 5, 6};
 
-        mergeSort.doYourMagicThing(data);
+        mergeSort.sort(data);
 
         int[] result = data;
         assertArrayEquals(expResult, result);
@@ -91,12 +87,12 @@ public class FunWithSortingTest {
      */
     @Test
     public void testQuickSort() {
-        ASortStrategy quickSort = sortCommand.getStrategy(ESortStrategy.QUICK);
+        ASortArrayTemplate quickSort = new QuickSort();
 
         int[] data = new int[]{5, 2, 3, 1, 6};
         int[] expResult = new int[]{1, 2, 3, 5, 6};
 
-        quickSort.doYourMagicThing(data);
+        quickSort.sort(data);
 
         int[] result = data;
         assertArrayEquals(expResult, result);

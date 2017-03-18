@@ -3,19 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package funwithsorting.bll.sorting;
+package funwithsorting.bll.intArray.sorting;
 
-public abstract class ASortStrategy {
+public abstract class ASortArrayTemplate implements ISortIntArrayStrategy {
 
-    private int currentMaxIndexOfArray;
+    private int mCurrentMaxIndexOfArray;
 
-    public void doYourMagicThing(int[] data) {
+    @Override
+    public void sort(int[] data) {
         validateArray(data);
         setMaxIndexOfArray(data);
-        sort(data);
+        sortSpecificWay(data);
     }
 
-    public abstract void sort(int[] data);
+    /**
+     * Method to implement concrete way of sorting array
+     *
+     * @param data
+     */
+    public abstract void sortSpecificWay(int[] data);
 
     /**
      * Check that there is data in the array
@@ -35,11 +41,11 @@ public abstract class ASortStrategy {
      * @param dataToSort
      */
     public void setMaxIndexOfArray(int[] dataToSort) {
-        currentMaxIndexOfArray = dataToSort.length;
+        mCurrentMaxIndexOfArray = dataToSort.length;
     }
 
     public int getCurrentMaxIndexOfArray() {
-        return currentMaxIndexOfArray;
+        return mCurrentMaxIndexOfArray;
     }
 
 }

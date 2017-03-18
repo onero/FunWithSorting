@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package funwithsorting.bll.sorting.strategies;
+package funwithsorting.bll.intArray.sorting.strategies;
 
-import funwithsorting.bll.sorting.ASortStrategy;
+import funwithsorting.bll.intArray.sorting.ASortArrayTemplate;
 
-public class InsertionSort extends ASortStrategy {
+public class InsertionSort extends ASortArrayTemplate {
 
     @Override
-    public void sort(int[] data) {
+    public void sortSpecificWay(int[] data) {
         validateArray(data);
         int arrayPosition;
         int key;

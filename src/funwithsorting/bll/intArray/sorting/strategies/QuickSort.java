@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package funwithsorting.bll.sorting.strategies;
+package funwithsorting.bll.intArray.sorting.strategies;
 
-import funwithsorting.bll.sorting.ASortStrategy;
+import funwithsorting.bll.intArray.sorting.ASortArrayTemplate;
 
-public class QuickSort extends ASortStrategy {
+public class QuickSort extends ASortArrayTemplate {
 
     private int[] arrayBeingSorted;
 
     @Override
-    public void sort(int[] data) {
+    public void sortSpecificWay(int[] data) {
         arrayBeingSorted = data;
         int low = 0, high = super.getCurrentMaxIndexOfArray() - 1;
         quicksort(low, high);
-        data = arrayBeingSorted;
     }
 
     /**

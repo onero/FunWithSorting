@@ -6,7 +6,8 @@
 package funwithsorting;
 
 import static funwithsorting.be.ESortStrategy.*;
-import funwithsorting.bll.StrategyFacade;
+import funwithsorting.bll.facade.StrategyFacade;
+import funwithsorting.bll.intArray.ArrayFactory;
 
 /**
  *
@@ -21,7 +22,7 @@ public class FunWithSorting {
         StrategyFacade strategyFacade = StrategyFacade.getInstance();
 
         System.out.println("Array before");
-        int[] data = new int[]{5, 3, 6, 2, 1};
+        int[] data = ArrayFactory.fillArray(10, 1, 10);
         soutArray(data);
 
         /*
@@ -32,7 +33,7 @@ public class FunWithSorting {
          * MERGE
          * QUICK
          */
-        strategyFacade.sortArrayWithStrategy(QUICK, data);
+        strategyFacade.sortIntArrayWithStrategy(QUICK, data);
 
         System.out.println();
         System.out.println("Array after");
