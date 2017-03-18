@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package funwithsorting.bll.Timing;
+package funwithsorting.bll.timing;
 
 public class MyTimer {
 
@@ -14,6 +14,7 @@ public class MyTimer {
     private static long timeSpan;
 
     public static void start() {
+        reset();
         startTime = System.nanoTime();
     }
 
