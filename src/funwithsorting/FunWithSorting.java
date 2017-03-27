@@ -27,6 +27,7 @@ public class FunWithSorting {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        System.out.println("****int[] sorting****");
         IntStrategyFacade strategyFacade = IntStrategyFacade.getInstance();
 
         System.out.println("Array before");
@@ -48,6 +49,8 @@ public class FunWithSorting {
         System.out.println("Array after");
         soutArray(data);
         System.out.println();
+
+        System.out.println("****List<T> Sorting****");
 
         objectStrategyFacade = ObjectStrategyFacade.getInstance();
         accountDAO = new AccountDAO();
