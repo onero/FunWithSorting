@@ -5,12 +5,10 @@
  */
 package funwithsorting.be;
 
-public enum ESortStrategy {
+public enum EObjectSortStrategy {
 
-    BUBBLE,
-    INSERTION,
-    SELECTION,
-    MERGE,
-    QUICK
+    NATURAL,
+    NAME,
+    BALANCE
 
 }

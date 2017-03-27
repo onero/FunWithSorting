@@ -5,9 +5,14 @@
  */
 package funwithsorting;
 
-import static funwithsorting.be.ESortStrategy.*;
-import funwithsorting.bll.facade.StrategyFacade;
+import funwithsorting.be.Account;
+import static funwithsorting.be.EIntArraySortStrategy.*;
+import static funwithsorting.be.EObjectSortStrategy.*;
+import funwithsorting.bll.facade.IntStrategyFacade;
+import funwithsorting.bll.facade.ObjectStrategyFacade;
 import funwithsorting.bll.intArray.ArrayFactory;
+import funwithsorting.dal.AccountDAO;
+import java.util.List;
 
 /**
  *
@@ -19,10 +24,11 @@ public class FunWithSorting {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        StrategyFacade strategyFacade = StrategyFacade.getInstance();
+        IntStrategyFacade strategyFacade = IntStrategyFacade.getInstance();
 
         System.out.println("Array before");
         int[] data = ArrayFactory.fillArray(10, 1, 10);
+
         soutArray(data);
 
         /*
@@ -38,6 +44,29 @@ public class FunWithSorting {
         System.out.println();
         System.out.println("Array after");
         soutArray(data);
+        System.out.println();
+
+        ObjectStrategyFacade objectStrategyFacade = ObjectStrategyFacade.getInstance();
+        AccountDAO dao = new AccountDAO();
+        List<Account> accounts = dao.getAccounts();
+        System.out.println("Before sort");
+        soutObjectArray(accounts);
+        System.out.println();
+
+        System.out.println("Natural sort");
+        objectStrategyFacade.sortWithObjectSortStrategy(NATURAL, accounts);
+        soutObjectArray(accounts);
+        System.out.println();
+
+        System.out.println("Name sort");
+        objectStrategyFacade.sortWithObjectSortStrategy(NAME, accounts);
+        soutObjectArray(accounts);
+        System.out.println();
+
+        System.out.println("Balance sort");
+        objectStrategyFacade.sortWithObjectSortStrategy(BALANCE, accounts);
+        soutObjectArray(accounts);
+
     }
 
     /**
@@ -51,4 +80,14 @@ public class FunWithSorting {
         }
     }
 
+    /**
+     * Log the data object to the console
+     *
+     * @param data
+     */
+    public static void soutObjectArray(List<Account> data) {
+        for (Account account : data) {
+            System.out.println(account.getID() + ": " + account.getName() + " " + account.getBalance());
+        }
+    }
 }

@@ -5,7 +5,7 @@
  */
 package funwithsorting.bll.facade;
 
-import funwithsorting.be.ESortStrategy;
+import funwithsorting.be.EIntArraySortStrategy;
 import funwithsorting.bll.intArray.sorting.ISortIntArrayStrategy;
 import funwithsorting.bll.intArray.sorting.strategies.BubbleSort;
 import funwithsorting.bll.intArray.sorting.strategies.InsertionSort;
@@ -13,9 +13,9 @@ import funwithsorting.bll.intArray.sorting.strategies.MergeSort;
 import funwithsorting.bll.intArray.sorting.strategies.QuickSort;
 import funwithsorting.bll.intArray.sorting.strategies.SelectionSort;
 
-public class StrategyFacade {
+public class IntStrategyFacade {
 
-    private static StrategyFacade instance;
+    private static IntStrategyFacade instance;
 
     private ISortIntArrayStrategy bubbleSort;
 
@@ -27,9 +27,9 @@ public class StrategyFacade {
 
     private ISortIntArrayStrategy quickSort;
 
-    public static StrategyFacade getInstance() {
+    public static IntStrategyFacade getInstance() {
         if (instance == null) {
-            instance = new StrategyFacade();
+            instance = new IntStrategyFacade();
         }
         return instance;
     }
@@ -40,7 +40,7 @@ public class StrategyFacade {
      * @param strategy
      * @param data
      */
-    public void sortIntArrayWithStrategy(ESortStrategy strategy, int[] data) {
+    public void sortIntArrayWithStrategy(EIntArraySortStrategy strategy, int[] data) {
         switch (strategy) {
             case BUBBLE:
                 bubbleSort = new BubbleSort();
