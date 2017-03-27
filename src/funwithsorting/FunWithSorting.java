@@ -20,6 +20,9 @@ import java.util.List;
  */
 public class FunWithSorting {
 
+    private static ObjectStrategyFacade objectStrategyFacade;
+    private static AccountDAO accountDAO;
+
     /**
      * @param args the command line arguments
      */
@@ -46,9 +49,10 @@ public class FunWithSorting {
         soutArray(data);
         System.out.println();
 
-        ObjectStrategyFacade objectStrategyFacade = ObjectStrategyFacade.getInstance();
-        AccountDAO dao = new AccountDAO();
-        List<Account> accounts = dao.getAccounts();
+        objectStrategyFacade = ObjectStrategyFacade.getInstance();
+        accountDAO = new AccountDAO();
+        List<Account> accounts = accountDAO.getAccounts();
+
         System.out.println("Before sort");
         soutObjectArray(accounts);
         System.out.println();
