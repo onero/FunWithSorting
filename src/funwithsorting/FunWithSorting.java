@@ -7,7 +7,7 @@ package funwithsorting;
 
 import funwithsorting.be.Account;
 import static funwithsorting.be.EIntArraySortStrategy.*;
-import static funwithsorting.be.EObjectSortStrategy.*;
+import static funwithsorting.be.EObjectSortComparator.*;
 import funwithsorting.bll.facade.IntStrategyFacade;
 import funwithsorting.bll.facade.ObjectStrategyFacade;
 import funwithsorting.bll.intArray.ArrayFactory;
@@ -61,19 +61,18 @@ public class FunWithSorting {
         System.out.println();
 
         System.out.println("Natural sort");
-        objectStrategyFacade.sortWithObjectSortStrategy(NATURAL, accounts);
+        objectStrategyFacade.sortWithObjectSortComparator(accounts, NATURAL);
         soutObjectArray(accounts);
         System.out.println();
 
         System.out.println("Name sort");
-        objectStrategyFacade.sortWithObjectSortStrategy(NAME, accounts);
+        objectStrategyFacade.sortWithObjectSortComparator(accounts, NAME);
         soutObjectArray(accounts);
         System.out.println();
 
         System.out.println("Balance sort");
-        objectStrategyFacade.sortWithObjectSortStrategy(BALANCE, accounts);
+        objectStrategyFacade.sortWithObjectSortComparator(accounts, BALANCE);
         soutObjectArray(accounts);
-
     }
 
     /**

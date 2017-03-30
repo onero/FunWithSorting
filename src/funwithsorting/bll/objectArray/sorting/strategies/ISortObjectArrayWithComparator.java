@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package funwithsorting.bll.ObjectArray.sorting;
+package funwithsorting.bll.objectArray.sorting.strategies;
 
+import java.util.Comparator;
 import java.util.List;
 
 /**
  *
  * @author gta1
- * @param <T>
  */
-public interface ISortObjectArrayStrategy<T> {
+public interface ISortObjectArrayWithComparator {
 
-    public void sort(List<T> data);
+    public <T> void sort(List<T> data, Comparator<? super T> comparator);
 
 }

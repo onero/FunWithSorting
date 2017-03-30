@@ -5,7 +5,7 @@
  */
 package funwithsorting.be;
 
-public enum EObjectSortStrategy {
+public enum EObjectSortComparator {
 
     NATURAL,
     NAME,
